@@ -1,0 +1,47 @@
+{
+  "name": "llmstatus",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Local-only desktop dashboard for Codex and Claude Code usage windows",
+  "author": "Oki Sugiyama",
+  "license": "MIT",
+  "homepage": "https://github.com/OkiSugiyama/LLMStatus#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OkiSugiyama/LLMStatus.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "test": "vitest run src",
+    "test:e2e:windows": "node --test e2e-tests/windows-smoke.test.mjs",
+    "test:release": "node --test e2e-tests/release-*.test.mjs",
+    "check": "npm run test && npm run build",
+    "check:release:local": "node scripts/local-release-check.mjs run",
+    "release:tree:validate": "node scripts/release-tree.mjs validate",
+    "release:tree:determinism": "node scripts/release-tree.mjs verify-determinism",
+    "notices:verify": "node scripts/dependency-notices.mjs verify",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.8.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.8.4",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3",
+    "vitest": "^3.2.4"
+  }
+}
